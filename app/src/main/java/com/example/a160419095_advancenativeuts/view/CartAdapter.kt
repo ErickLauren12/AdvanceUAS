@@ -5,33 +5,39 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a160419095_advancenativeuts.R
+import com.example.a160419095_advancenativeuts.databinding.CartListItemBinding
 import com.example.a160419095_advancenativeuts.model.Book
+import com.example.a160419095_advancenativeuts.model.Cart
 import com.example.a160419095_advancenativeuts.util.loadImage
 import kotlinx.android.synthetic.main.cart_list_item.view.*
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 
-class CartAdapter(val cartList:ArrayList<Book>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(){
-    class CartViewHolder(var view:View) : RecyclerView.ViewHolder(view)
+class CartAdapter(val cartList:ArrayList<Cart>, val adapterOnClick: (Cart)->Unit) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(), CartRemoveClickListener{
+    class CartViewHolder(var view:CartListItemBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.cart_list_item, parent, false)
+        val view = CartListItemBinding.inflate(inflater, parent, false)
         return CartViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        val cart = cartList[position]
-        with(holder.view){
-            txtCartTitle.text = cart.title
-            imageCart.loadImage(cart.photoUrl, progressBarLoadImageCart)
-        }
+        holder.view.bookCart = cartList[position]
+        holder.view.removeListener = this
+        /*with(holder.view){
+            bookCart = cartList[position]
+        }*/
     }
 
     override fun getItemCount() = cartList.size
 
-    fun updateCartList(newCartList: ArrayList<Book>){
+    fun updateCartList(newCartList: List<Cart>){
         cartList.clear()
         cartList.addAll(newCartList)
         notifyDataSetChanged()
+    }
+
+    override fun onCartRemoveClick(view: View, obj: Cart) {
+        adapterOnClick(obj)
     }
 }

@@ -10,8 +10,6 @@ data class Cart(
     var title:String,
     @ColumnInfo(name = "image")
     var image:String,
-    @ColumnInfo(name = "stock")
-    var stock:Int,
 ){
     @PrimaryKey(autoGenerate = true)
     var idBook: Int = 0

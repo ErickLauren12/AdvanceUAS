@@ -6,20 +6,26 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a160419095_advancenativeuts.R
+import com.example.a160419095_advancenativeuts.databinding.BookListItemBinding
 import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.util.loadImage
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
-class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>() {
-    class BookViewHolder(var view:View) : RecyclerView.ViewHolder(view)
+class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>(), BookListDetailClickListener {
+    class BookViewHolder(var view:BookListItemBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.book_list_item, parent, false)
+        val view = BookListItemBinding.inflate(inflater, parent, false)
         return  BookViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
+        with(holder.view){
+            book = bookList[position]
+            detailListener = this@BookListAdapter
+        }
+        /*
         val book = bookList[position]
         with(holder.view){
             txtTitle.text = book.title
@@ -31,7 +37,7 @@ class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookL
                 Navigation.findNavController(it).navigate(action)
             }
 
-        }
+        }*/
     }
 
     override fun getItemCount() = bookList.size
@@ -40,5 +46,11 @@ class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookL
         bookList.clear()
         bookList.addAll(newBookList)
         notifyDataSetChanged()
+    }
+
+    override fun onBookDetailClick(view: View) {
+        val bookId = view.tag.toString()
+        val action = BookListFragmentDirections.actionBookDetail(bookId)
+        Navigation.findNavController(view).navigate(action)
     }
 }

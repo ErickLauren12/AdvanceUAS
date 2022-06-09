@@ -11,6 +11,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.model.BookDatabase
+import com.example.a160419095_advancenativeuts.util.buildDb
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
@@ -38,10 +39,8 @@ class ListBookViewModel(application: Application) : AndroidViewModel(application
         bookLoadErrorLiveData.value = false
 
         launch {
-            val db = Room.databaseBuilder(getApplication(), BookDatabase::class.java,
-            "newbookdb").build()
-
-            bookLiveData.value = db.bookDao().selectAllBook()
+            val db = buildDb(getApplication())
+            bookLiveData.value = db.bookDatabase().selectAllBook()
         }
         /*
         val url = "http://192.168.18.19/Advance/book.json"
@@ -66,12 +65,13 @@ class ListBookViewModel(application: Application) : AndroidViewModel(application
         rQueue?.add(stringRequest)*/
     }
 
+
     fun clearTask(book: Book){
         launch {
             val db = Room.databaseBuilder(getApplication(), BookDatabase::class.java,
                 "newbookdb").build()
-            db.bookDao().deleteBook(book)
-            bookLiveData.value =db.bookDao().selectAllBook()
+            db.bookDatabase().deleteBook(book)
+            bookLiveData.value =db.bookDatabase().selectAllBook()
         }
     }
     /*

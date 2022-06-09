@@ -10,6 +10,9 @@ interface BookDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllBook(vararg book: Book)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCart(vararg cart: Cart)
+
     @Query("SELECT * FROM book")
     suspend fun selectAllBook(): List<Book>
 

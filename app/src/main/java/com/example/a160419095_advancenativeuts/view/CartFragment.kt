@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a160419095_advancenativeuts.R
+import com.example.a160419095_advancenativeuts.model.Cart
 import com.example.a160419095_advancenativeuts.viewmodel.CartModel
 import com.example.a160419095_advancenativeuts.viewmodel.ListBookViewModel
 import kotlinx.android.synthetic.main.fragment_book_list.*
@@ -15,7 +16,9 @@ import kotlinx.android.synthetic.main.fragment_cart.*
 
 class CartFragment : Fragment() {
     private  lateinit var  viewModel: CartModel
-    private  val cartListAdapter = CartAdapter(arrayListOf())
+    private  val cartListAdapter = CartAdapter(arrayListOf()) {
+        viewModel.removeCart(it)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +48,7 @@ class CartFragment : Fragment() {
 
     private fun observeViewModel(){
         viewModel.cartLiveData.observe(viewLifecycleOwner){
-            cartListAdapter.updateCartList(it)
+            cartListAdapter.updateCartList(it )
         }
 
         viewModel.cartLoadErrorLiveData.observe(viewLifecycleOwner){
