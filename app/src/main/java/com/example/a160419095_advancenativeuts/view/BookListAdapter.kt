@@ -27,7 +27,7 @@ class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookL
             imageBook.loadImage(book.photoUrl, progressLoadingPhoto)
 
             buttonDetail.setOnClickListener {
-                val action = BookListFragmentDirections.actionBookDetail(book.id.toString())
+                val action = BookListFragmentDirections.actionBookDetail(book.bookId.toString())
                 Navigation.findNavController(it).navigate(action)
             }
 

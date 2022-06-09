@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a160419095_advancenativeuts.R
+import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.viewmodel.ListBookViewModel
 import kotlinx.android.synthetic.main.fragment_book_list.*
 
@@ -43,7 +44,17 @@ class BookListFragment : Fragment() {
 
     private fun observeViewModel(){
         viewModel.bookLiveData.observe(viewLifecycleOwner){
-            bookListAdapter.updateBookList(it)
+            bookListAdapter.updateBookList(it as ArrayList<Book>)
+
+            if(it.isEmpty() == true){
+                textEmpty.visibility = View.VISIBLE
+                textError.visibility = View.GONE
+                progressLoad.visibility = View.GONE
+            }else{
+                textEmpty.visibility = View.GONE
+                textError.visibility = View.GONE
+                progressLoad.visibility = View.GONE
+            }
         }
 
         viewModel.bookLoadErrorLiveData.observe(viewLifecycleOwner){
