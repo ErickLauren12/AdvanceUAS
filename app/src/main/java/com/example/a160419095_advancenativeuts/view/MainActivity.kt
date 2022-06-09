@@ -1,5 +1,6 @@
 package com.example.a160419095_advancenativeuts.view
 
+import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -21,14 +22,14 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     //Untuk sensor cahaya
     private var lightSensor: Sensor? = null
     private var lightReading = 0f
-
+    private lateinit var  sensorManager: SensorManager
     private lateinit var navController: NavController
 
-    private lateinit var  sensorManager: SensorManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         //Sensor Cahaya
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
 
@@ -41,11 +42,13 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-
         //cek sensor cahaya
         if(lightSensor == null){
-            Toast.makeText(this, "No Light sensor Detected", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "No Light sensor Detected",
+                Toast.LENGTH_SHORT).show()
         }
+        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_FASTEST)
+        Toast.makeText(this, "Light Sensor detected",Toast.LENGTH_SHORT).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -69,7 +72,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         }
     }
 
-    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
 
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
     }
 }

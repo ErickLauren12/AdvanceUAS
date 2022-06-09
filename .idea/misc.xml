@@ -3,9 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/book_list_item.xml" value="0.22554347826086957" />
-        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/cart_list_item.xml" value="0.4" />
-        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/fragment_book_detail.xml" value="0.16927083333333334" />
+        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/cart_list_item.xml" value="0.2" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/fragment_book_list.xml" value="0.264" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/fragment_cart.xml" value="0.11302083333333333" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUTS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.229" />
@@ -29,6 +27,7 @@
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUTS/app/src/main/res/layout/fragment_register.xml" value="0.264" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUTS/app/src/main/res/layout/fragment_update.xml" value="0.264" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUTS/app/src/main/res/menu/bottom_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_register.xml" value="0.15104166666666666" />
       </map>
     </option>
   </component>
