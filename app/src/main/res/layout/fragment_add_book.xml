@@ -28,7 +28,7 @@
             android:src="@drawable/ic_baseline_arrow_back_ios_24"
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/logo"
             android:layout_width="110dp"
             android:layout_height="110dp"
