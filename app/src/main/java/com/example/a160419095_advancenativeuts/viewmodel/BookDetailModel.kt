@@ -22,8 +22,8 @@ import kotlin.coroutines.CoroutineContext
 class BookDetailModel(application: Application) : AndroidViewModel(application), CoroutineScope {
     private var job = Job()
     val bookLiveData = MutableLiveData<Book>()
-    val loadingLiveData = MutableLiveData<Boolean>()
-    val bookLoadErrorLiveData = MutableLiveData<Boolean>()
+    /*val loadingLiveData = MutableLiveData<Boolean>()
+    val bookLoadErrorLiveData = MutableLiveData<Boolean>()*/
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
@@ -38,10 +38,12 @@ class BookDetailModel(application: Application) : AndroidViewModel(application),
         launch {
             val db = buildDb(getApplication())
             bookLiveData.value = db.bookDatabase().selectBook(id)
+
+            /*
             bookLoadErrorLiveData.value = false
             loadingLiveData.value = true
 
-            /*
+
             rQueue = Volley.newRequestQueue(getApplication())
             val url = "http://192.168.18.19/Advance/$id.json"
             val sType = object : TypeToken<Book>(){}.type

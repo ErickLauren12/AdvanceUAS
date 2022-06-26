@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 Toast.LENGTH_SHORT).show()
         }
         sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_FASTEST)
-        Toast.makeText(this, "Light Sensor detected",Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Light Sensor detected",Toast.LENGTH_SHORT).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
