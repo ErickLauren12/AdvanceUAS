@@ -7,6 +7,9 @@
         <variable
             name="book"
             type="com.example.a160419095_advancenativeuts.model.Book" />
+        <variable
+            name="listener"
+            type="com.example.a160419095_advancenativeuts.view.ButtonAddTodoClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,10 +22,13 @@
 
         <TextView
             android:id="@+id/textView12"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
             android:text="Tambah Buku Baru"
+            android:textAlignment="center"
             android:textSize="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,13 +36,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputTitle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/textView12">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -48,13 +55,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputDescription"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputTitle"
+            app:layout_constraintStart_toStartOf="@+id/textInputTitle"
             app:layout_constraintTop_toBottomOf="@+id/textInputTitle">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -65,13 +71,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputDate"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputWriter"
+            app:layout_constraintStart_toStartOf="@+id/textInputWriter"
             app:layout_constraintTop_toBottomOf="@+id/textInputWriter">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -82,13 +87,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputWriter"
-            android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputDescription"
+            app:layout_constraintStart_toStartOf="@+id/textInputDescription"
             app:layout_constraintTop_toBottomOf="@+id/textInputDescription">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -99,26 +103,23 @@
 
         <Button
             android:id="@+id/btnAdd"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="16dp"
+            android:onClick="@{listener::onButtonAddTodo}"
             android:text="Add Book"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textInputPhotoUrl"
+            app:layout_constraintStart_toStartOf="@+id/textInputPhotoUrl"
             app:layout_constraintTop_toBottomOf="@+id/textInputPhotoUrl" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputStock"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputDate"
+            app:layout_constraintStart_toStartOf="@+id/textInputDate"
             app:layout_constraintTop_toBottomOf="@+id/textInputDate">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -129,13 +130,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPhotoUrl"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputStock"
+            app:layout_constraintStart_toStartOf="@+id/textInputStock"
             app:layout_constraintTop_toBottomOf="@+id/textInputStock">
 
             <com.google.android.material.textfield.TextInputEditText

@@ -25,6 +25,13 @@ class BookDetailModel(application: Application) : AndroidViewModel(application),
     /*val loadingLiveData = MutableLiveData<Boolean>()
     val bookLoadErrorLiveData = MutableLiveData<Boolean>()*/
 
+    fun addBook(list: List<Book>) {
+        launch {
+            val db = buildDb(getApplication())
+            db.bookDatabase().insertAllBook(*list.toTypedArray())
+        }
+    }
+
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 

@@ -34,6 +34,9 @@
         <action
             android:id="@+id/actionBookDetail"
             app:destination="@id/bookDetailFragment" />
+        <action
+            android:id="@+id/action_addBook"
+            app:destination="@id/addBookFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookDetailFragment"
@@ -69,4 +72,8 @@
         android:name="com.example.a160419095_advancenativeuts.view.CartFragment"
         android:label="Cart"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.example.a160419095_advancenativeuts.view.AddBookFragment"
+        android:label="AddBookFragment" />
 </navigation>

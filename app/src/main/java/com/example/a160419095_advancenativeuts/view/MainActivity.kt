@@ -7,6 +7,7 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         //Sensor Cahaya
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
+
+        var actionBar = supportActionBar
+        if(actionBar!=null) {
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
 
         navController = (supportFragmentManager.findFragmentById(R.id.hostFragment) as NavHostFragment).navController
 
@@ -77,5 +84,15 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onPause() {
         super.onPause()
         sensorManager.unregisterListener(this)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.content -> {
+                finish()
+                return true
+            }
+        }
+        return super.onContextItemSelected(item)
     }
 }

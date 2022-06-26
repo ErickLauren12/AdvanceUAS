@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a160419095_advancenativeuts.R
 import com.example.a160419095_advancenativeuts.model.Book
@@ -30,6 +31,11 @@ class BookListFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = bookListAdapter
+
+        floatingAdd.setOnClickListener {
+            val action = BookListFragmentDirections.actionAddBook()
+            Navigation.findNavController(it).navigate(action)
+        }
 
         observeViewModel()
 
