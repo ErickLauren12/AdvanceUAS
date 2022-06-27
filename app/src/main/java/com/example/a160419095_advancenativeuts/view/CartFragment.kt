@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_cart.*
 class CartFragment : Fragment() {
     private  lateinit var  viewModel: CartModel
     private  val cartListAdapter = CartAdapter(arrayListOf()) {
+        viewModel.RestoreStock(it.bookId)
         viewModel.removeCart(it)
     }
 

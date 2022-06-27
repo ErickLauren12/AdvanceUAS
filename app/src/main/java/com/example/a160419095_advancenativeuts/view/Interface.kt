@@ -19,3 +19,7 @@ interface CartRemoveClickListener{
 interface ButtonAddBookClickListener {
     fun onButtonAddBook(v:View, obj: Book)
 }
+
+interface DateListener{
+    fun onDateClick(view: View)
+}

@@ -55,10 +55,7 @@ class AddBookFragment : Fragment(), ButtonAddBookClickListener {
         }
     }
 
+}
 //    fun observeViewModel() {
 //        viewModel.
 //    }
-
-
-
-}

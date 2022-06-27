@@ -1,5 +1,6 @@
 package com.example.a160419095_advancenativeuts.view
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.a160419095_advancenativeuts.R
 import com.example.a160419095_advancenativeuts.databinding.FragmentBookDetailBinding
 import com.example.a160419095_advancenativeuts.model.Book
@@ -52,11 +54,36 @@ class BookDetailFragment : Fragment(), AddCartClickListener {
     }
 
     override fun onAddCartClick(view: View, obj: Book) {
-        Log.d("List cart",obj.toString())
-        var cart = Cart(obj.title, obj.photoUrl)
-        var list = listOf(cart)
 
-        viewModel.addCart(list)
+        var bookStock = Integer.parseInt(obj.stock)
+        val builder = AlertDialog.Builder(context)
+        if(bookStock  > 0){
+            bookStock -= 1
+
+            viewModel.updateStock(obj.bookId, bookStock.toString())
+
+            var cart = Cart(obj.bookId, obj.title, obj.photoUrl)
+            var list = listOf(cart)
+
+            viewModel.addCart(list)
+
+            with(builder) {
+                setMessage("Book Added To Cart")
+                setNegativeButton("BACK"){ _, _ ->
+                    Navigation.findNavController(view).popBackStack()
+                }
+                create().show()
+            }
+        }else{
+
+            with(builder) {
+                setMessage("Book Stock Is Empty")
+                setNegativeButton("BACK"){ _, _ ->
+                    Navigation.findNavController(view).popBackStack()
+                }
+                create().show()
+            }
+        }
     }
 /*
     override fun onButtonAddBook(v: View, obj: Book) {

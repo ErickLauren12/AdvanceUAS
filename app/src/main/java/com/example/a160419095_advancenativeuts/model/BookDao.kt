@@ -22,6 +22,9 @@ interface BookDao {
     @Query("SELECT * FROM book WHERE bookId= :id")
     suspend fun selectBookId(id:Int): Book
 
+    @Query("UPDATE book SET stock =  :stock WHERE bookId = :id")
+    suspend fun updateStock(id: Int, stock:String)
+
     @Query("SELECT * FROM account WHERE username = :username AND password = :password")
     suspend fun loginAccount(username: String, password: String): Account
 

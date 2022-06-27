@@ -22,6 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fillViewport="true"
+            android:focusable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -40,6 +41,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    app:endIconDrawable="@drawable/ic_baseline_calendar_month_24"
+                    app:endIconMode="custom"
                     app:hintAnimationEnabled="true"
                     app:hintEnabled="true"
                     app:layout_constraintEnd_toEndOf="@+id/textInputWriter"
@@ -48,10 +51,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtDate"
-                        android:text="@={book.releaseDate}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Masukan Tanggal Rilis" />
+                        android:hint="Masukan Tanggal Rilis"
+                        android:text="@={book.releaseDate}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -68,10 +71,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtDesc"
-                        android:text="@={book.description}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Masukan Deskripsi" />
+                        android:hint="Masukan Deskripsi"
+                        android:text="@={book.description}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
@@ -116,10 +119,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtTitle"
-                        android:text="@={book.title}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Masukan Judul Buku" />
+                        android:hint="Masukan Judul Buku"
+                        android:text="@={book.title}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,10 +140,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtAuthor"
-                        android:text="@={book.writer}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Masukan Nama Penulis" />
+                        android:hint="Masukan Nama Penulis"
+                        android:text="@={book.writer}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -157,10 +160,11 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtStok"
-                        android:text="@={book.stock}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Masukan Stock" />
+                        android:hint="Masukan Stock"
+                        android:inputType="number"
+                        android:text="@={book.stock}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -177,10 +181,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtUrl"
-                        android:text="@={book.photoUrl}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Masukan URL Foto" />
+                        android:hint="Masukan URL Foto"
+                        android:text="@={book.photoUrl}" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

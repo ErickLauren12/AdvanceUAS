@@ -49,13 +49,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="24dp"
             android:text="@{book.description}"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageBookDetail" />
+            app:layout_constraintTop_toBottomOf="@+id/textStockDetail" />
 
         <TextView
             android:id="@+id/textWriterDetail"
@@ -96,5 +96,14 @@
             app:layout_constraintEnd_toEndOf="@+id/imageBookDetail"
             app:layout_constraintStart_toStartOf="@+id/imageBookDetail"
             app:layout_constraintTop_toTopOf="@+id/imageBookDetail" />
+
+        <TextView
+            android:id="@+id/textStockDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Stock: `+book.stock}"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@+id/textReleaseDate"
+            app:layout_constraintTop_toBottomOf="@+id/textReleaseDate" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
