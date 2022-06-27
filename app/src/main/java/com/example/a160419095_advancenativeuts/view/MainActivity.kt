@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            android.R.id.content -> {
+            android.R.id.home -> {
                 finish()
                 return true
             }

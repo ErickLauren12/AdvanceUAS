@@ -11,6 +11,6 @@ interface CartRemoveClickListener{
     fun onCartRemoveClick(view: View, obj:Cart)
 }
 
-interface ButtonAddTodoClickListener {
-    fun onButtonAddTodo(v:View)
+interface ButtonAddBookClickListener {
+    fun onButtonAddBook(v:View)
 }
