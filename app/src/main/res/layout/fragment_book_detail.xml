@@ -7,6 +7,9 @@
         <variable
             name="book"
             type="com.example.a160419095_advancenativeuts.model.Book" />
+        <variable
+            name="addListener"
+            type="com.example.a160419095_advancenativeuts.view.AddCartClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:imageUrl="@{book.photoUrl}"
+            android:progressBar="@{progressBookDetailLoad}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
@@ -58,7 +63,7 @@
             android:layout_height="25dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="12dp"
-            android:text="@{book.writer}"
+            android:text="@{`By ` + book.writer}"
             app:layout_constraintStart_toEndOf="@+id/imageBookDetail"
             app:layout_constraintTop_toBottomOf="@+id/textTitleDetail" />
 
@@ -67,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@{book.releaseDate}"
+            android:text="@{`Release: `+book.releaseDate}"
             app:layout_constraintStart_toStartOf="@+id/textWriterDetail"
             app:layout_constraintTop_toBottomOf="@+id/textWriterDetail" />
 
@@ -78,6 +83,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Add To Cart"
+            android:onClick="@{(view) -> addListener.onAddCartClick(view,book)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDescriptionDetail" />
 

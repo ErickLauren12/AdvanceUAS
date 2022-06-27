@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.databinding.BindingAdapter
 import androidx.room.Room
 import com.example.a160419095_advancenativeuts.R
 import com.example.a160419095_advancenativeuts.model.Book
@@ -17,6 +18,13 @@ val DB_NAME = "newbookdb"
 fun buildDb(context: Context): BookDatabase{
     val db = Room.databaseBuilder(context, BookDatabase:: class.java, DB_NAME).fallbackToDestructiveMigration().build()
     return db
+}
+
+@BindingAdapter("android:imageUrl", "android:progressBar")
+fun loadImageFromUrl(view: ImageView, url: String?, pb: ProgressBar){
+    if(url != ""){
+        view.loadImage(url, pb)
+    }
 }
 
 fun ImageView.loadImage(url: String?, progressBar: ProgressBar){

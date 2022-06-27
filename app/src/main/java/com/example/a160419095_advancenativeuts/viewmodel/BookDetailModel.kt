@@ -10,6 +10,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.a160419095_advancenativeuts.model.Book
+import com.example.a160419095_advancenativeuts.model.Cart
 import com.example.a160419095_advancenativeuts.util.buildDb
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -39,6 +40,13 @@ class BookDetailModel(application: Application) : AndroidViewModel(application),
 
     val TAG = "DetailBookTag"*/
     private var rQueue: RequestQueue? = null
+
+    fun addCart(cart: List<Cart>){
+        launch {
+            val db = buildDb(getApplication())
+            db.bookDatabase().insertCart(*cart.toTypedArray())
+        }
+    }
 
     fun detail(id: Int){
 

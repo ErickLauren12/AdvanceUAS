@@ -8,6 +8,10 @@ interface BookListDetailClickListener{
     fun onBookDetailClick(view: View)
 }
 
+interface AddCartClickListener{
+    fun onAddCartClick(view: View, obj:Book)
+}
+
 interface CartRemoveClickListener{
     fun onCartRemoveClick(view: View, obj:Cart)
 }

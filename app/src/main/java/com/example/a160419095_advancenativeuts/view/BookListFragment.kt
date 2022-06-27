@@ -1,10 +1,12 @@
 package com.example.a160419095_advancenativeuts.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,7 +28,7 @@ class BookListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel =ViewModelProvider(this).get(ListBookViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ListBookViewModel::class.java)
         viewModel.refresh()
 
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -37,20 +39,19 @@ class BookListFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
 
-        observeViewModel()
-
         refreshLayout.setOnRefreshListener {
             textError.visibility = View.GONE
             progressLoad.visibility
-            recyclerView.visibility = View.GONE
             refreshLayout.isRefreshing = false
-            viewModel.refresh()
+            observeViewModel()
         }
+
+        observeViewModel()
     }
 
     private fun observeViewModel(){
-        viewModel.bookLiveData.observe(viewLifecycleOwner){
-            bookListAdapter.updateBookList(it as ArrayList<Book>)
+        viewModel.bookLiveData.observe(viewLifecycleOwner) {
+            bookListAdapter.updateBookList(it)
 
             if(it.isEmpty() == true){
                 textEmpty.visibility = View.VISIBLE
@@ -65,16 +66,6 @@ class BookListFragment : Fragment() {
 
         viewModel.bookLoadErrorLiveData.observe(viewLifecycleOwner){
             textError.visibility = if(it) View.VISIBLE else View.GONE
-        }
-
-        viewModel.loadingLiveData.observe(viewLifecycleOwner){
-            if(it){
-                recyclerView.visibility = View.GONE
-                progressLoad.visibility = View.VISIBLE
-            }else{
-                recyclerView.visibility = View.VISIBLE
-                progressLoad.visibility = View.GONE
-            }
         }
     }
 }
