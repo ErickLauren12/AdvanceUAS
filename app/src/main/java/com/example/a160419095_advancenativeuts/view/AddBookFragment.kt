@@ -17,7 +17,6 @@ import com.example.a160419095_advancenativeuts.databinding.FragmentAddBookBindin
 import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.viewmodel.BookDetailModel
 import kotlinx.android.synthetic.main.fragment_add_book.*
-import kotlinx.android.synthetic.main.fragment_add_book.view.*
 
 class AddBookFragment : Fragment(), ButtonAddBookClickListener {
     private lateinit var viewModel: BookDetailModel
@@ -37,33 +36,23 @@ class AddBookFragment : Fragment(), ButtonAddBookClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //instance
-        var title = txtTitle.text.toString()
-        var desc = txtDesc.text.toString()
-        var author = txtAuthor.text.toString()
-        var date = txtDate.text.toString()
-        var stok:Int = 20
-        var url = txtUrl.text.toString()
-        Log.d("cek isi data title", title)
-        dataBinding.book = Book(title,desc,author,date,stok, url)
+        dataBinding.book = Book("","","","","","")
         viewModel = ViewModelProvider(this).get(BookDetailModel::class.java)
         dataBinding.listener = this
 
     }
 
-    override fun onButtonAddBook(v: View) {
-        val list = listOf(dataBinding.book!!)
-        Log.d("cek list", list.toString())
+    override fun onButtonAddBook(v: View, obj: Book) {
+        var list = listOf(obj)
         viewModel.addBook(list)
-        Toast.makeText(v.context,"Data added",Toast.LENGTH_LONG).show()
-        Navigation.findNavController(v).popBackStack()
-//        val builder = AlertDialog.Builder(context)
-//        with(builder) {
-//            setMessage("Book Data successfully added")
-//            setNegativeButton("BACK"){ _, _ ->
-//
-//            }
-//            create().show()
-//        }
+        val builder = AlertDialog.Builder(context)
+        with(builder) {
+            setMessage("Book Data successfully added")
+            setNegativeButton("BACK"){ _, _ ->
+                Navigation.findNavController(v).popBackStack()
+            }
+            create().show()
+        }
     }
 
 //    fun observeViewModel() {

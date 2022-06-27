@@ -1,6 +1,7 @@
 package com.example.a160419095_advancenativeuts.view
 
 import android.view.View
+import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.model.Cart
 
 interface BookListDetailClickListener{
@@ -12,5 +13,5 @@ interface CartRemoveClickListener{
 }
 
 interface ButtonAddBookClickListener {
-    fun onButtonAddBook(v:View)
+    fun onButtonAddBook(v:View, obj: Book)
 }

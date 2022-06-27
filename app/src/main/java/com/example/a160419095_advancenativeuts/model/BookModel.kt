@@ -16,7 +16,7 @@ data class Book(
     @ColumnInfo(name = "releaseDate")
     var releaseDate:String,
     @ColumnInfo(name = "stock")
-    var stock:Int,
+    var stock:String,
     @SerializedName("photo_url")
     var photoUrl:String
 ){
