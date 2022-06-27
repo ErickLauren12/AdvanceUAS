@@ -31,6 +31,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
     fun login(username:String, pass:String) {
         launch {
             val db = buildDb(getApplication())
+
             db.bookDatabase().loginAccount(username,pass)
         }
     }
