@@ -23,7 +23,6 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         launch {
             val db = buildDb(getApplication())
             db.bookDatabase().insertAllAccount(*list.toTypedArray())
-
         }
     }
 
