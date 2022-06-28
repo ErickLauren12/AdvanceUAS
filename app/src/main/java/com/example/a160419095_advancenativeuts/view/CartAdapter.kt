@@ -38,6 +38,7 @@ class CartAdapter(val cartList:ArrayList<Cart>, val adapterOnClick: (Cart)->Unit
     }
 
     override fun onCartRemoveClick(view: View, obj: Cart) {
+
         adapterOnClick(obj)
     }
 }

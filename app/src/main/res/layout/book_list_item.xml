@@ -41,6 +41,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:scaleType="centerCrop"
+                    android:imageUrl="@{book.photoUrl}"
+                    android:progressBar="@{progressLoadingPhoto}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -92,6 +94,16 @@
                     app:layout_constraintEnd_toEndOf="@+id/imageBook"
                     app:layout_constraintStart_toStartOf="@+id/imageBook"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@{`Stock: `+book.stock}"
+                    app:layout_constraintStart_toEndOf="@+id/imageBook"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

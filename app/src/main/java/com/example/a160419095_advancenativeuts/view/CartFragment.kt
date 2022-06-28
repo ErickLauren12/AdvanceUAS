@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_cart.*
 class CartFragment : Fragment() {
     private  lateinit var  viewModel: CartModel
     private  val cartListAdapter = CartAdapter(arrayListOf()) {
+        viewModel.RestoreStock(it.bookId)
         viewModel.removeCart(it)
     }
 
@@ -35,34 +36,32 @@ class CartFragment : Fragment() {
         recyclerViewCart.layoutManager = LinearLayoutManager(context)
         recyclerViewCart.adapter = cartListAdapter
 
-        observeViewModel()
-
         refreshLayoutCart.setOnRefreshListener {
             recyclerViewCart.visibility = View.GONE
             txtErrorCart.visibility = View.GONE
-            progressLoadCart.visibility
-            viewModel.refresh()
+            progressLoadCart.visibility = View.GONE
+
             refreshLayoutCart.isRefreshing = false
+            observeViewModel()
         }
+
+        observeViewModel()
     }
 
     private fun observeViewModel(){
         viewModel.cartLiveData.observe(viewLifecycleOwner){
-            cartListAdapter.updateCartList(it )
-        }
+            cartListAdapter.updateCartList(it)
 
-        viewModel.cartLoadErrorLiveData.observe(viewLifecycleOwner){
-            txtErrorCart.visibility = if(it) View.VISIBLE else View.GONE
-        }
-
-        viewModel.loadingLiveData.observe(viewLifecycleOwner){
-            if(it){
+            if(it.isEmpty() == true){
                 recyclerViewCart.visibility = View.GONE
-                progressLoadCart.visibility = View.VISIBLE
+                txtErrorCart.visibility = View.VISIBLE
+                progressLoadCart.visibility = View.GONE
             }else{
                 recyclerViewCart.visibility = View.VISIBLE
+                txtErrorCart.visibility = View.GONE
                 progressLoadCart.visibility = View.GONE
             }
         }
+
     }
 }

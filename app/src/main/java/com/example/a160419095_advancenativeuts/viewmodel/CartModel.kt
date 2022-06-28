@@ -63,6 +63,15 @@ class CartModel(application: Application) : AndroidViewModel(application), Corou
         rQueue?.add(stringRequest)*/
     }
 
+    fun RestoreStock(id: Int){
+        launch {
+            val db = buildDb(getApplication())
+            val book = db.bookDatabase().selectBook(id)
+            val stock = Integer.parseInt(book.stock) + 1
+            db.bookDatabase().updateStock(id, stock.toString())
+        }
+    }
+
     fun removeCart(cart: Cart){
         launch{
             val db = Room.databaseBuilder(getApplication(), BookDatabase::class.java, "newbookdb").build()

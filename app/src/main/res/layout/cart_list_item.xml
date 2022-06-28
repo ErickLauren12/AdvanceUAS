@@ -39,6 +39,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:imageUrl="@{bookCart.image}"
+                    android:progressBar="@{progressBarLoadImageCart}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
