@@ -16,6 +16,8 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
 //    val loadingLiveData = MutableLiveData<Boolean>()
 //    val cartLoadErrorLiveData = MutableLiveData<Boolean>()
     private var job = Job()
+    override val coroutineContext: CoroutineContext
+        get() = job + Dispatchers.Main
 
     fun register(list: List<Account>) {
         launch {
@@ -24,9 +26,6 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
 
         }
     }
-
-    override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main
 
     fun login(username:String, pass:String) {
         launch {
