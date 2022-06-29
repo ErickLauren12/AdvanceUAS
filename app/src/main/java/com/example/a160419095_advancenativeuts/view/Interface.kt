@@ -37,4 +37,6 @@ interface ButtonUpdateBookClickListener{
 //    fun onButtonRegister(v:View, obj: Account)
 //}
 
-
+interface DateClickListener {
+    fun onDateClick(v:View)
+}
