@@ -40,5 +40,8 @@ interface BookDao {
 
     @Delete
     suspend fun deleteBook(book: Book)
+
+    @Query("DELETE FROM cart")
+    suspend fun deleteAllCart()
 }
 

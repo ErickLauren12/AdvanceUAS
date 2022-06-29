@@ -37,7 +37,4 @@ interface ButtonUpdateBookClickListener{
 //    fun onButtonRegister(v:View, obj: Account)
 //}
 
-interface CheckoutClickListener {
-    fun onCheckoutClick(v:View, obj:Transaksi)
-}
 

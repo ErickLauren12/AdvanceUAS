@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,8 +28,10 @@ import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import java.util.*
 
 class CartFragment : Fragment() {
+
     private  lateinit var  viewModel: CartModel
     private lateinit var dataBinding: FragmentCartBinding
     private  val cartListAdapter = CartAdapter(arrayListOf()) {
@@ -56,7 +59,6 @@ class CartFragment : Fragment() {
         recyclerViewCart.adapter = cartListAdapter
 
         refreshLayoutCart.setOnRefreshListener {
-            recyclerViewCart.visibility = View.GONE
             txtErrorCart.visibility = View.GONE
             progressLoadCart.visibility = View.GONE
 
@@ -64,8 +66,24 @@ class CartFragment : Fragment() {
             observeViewModel()
         }
 
+        buttonCheckout.setOnClickListener{
+            var cartData = viewModel.cartLiveData.value as List<Cart>
+            viewModel.deleteAllCart()
 
+            for (item in cartData){
+                var dateNow = LocalDate.now()
+                val formatTanggal = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+                val tanggalSkrg = dateNow.format(formatTanggal)
 
+                var fiveDay = dateNow.plus(Period.of(0,0,7))
+                var tanggalAkhirPinjam = fiveDay.format(formatTanggal)
+
+                var transaksi = Transaksi(tanggalSkrg,tanggalAkhirPinjam,item.title,item.image,item.bookId)
+                var list = listOf(transaksi)
+                viewModel.checkOut(list)
+            }
+            viewModel.refresh()
+        }
 //        dataBinding.transaksi = Transaksi(tanggalSkrg,tanggalAkhirPinjam,"","",1)
 //        viewModel = ViewModelProvider(this).get(CartModel::class.java)
 //        dataBinding.listener = this
@@ -78,12 +96,10 @@ class CartFragment : Fragment() {
             cartListAdapter.updateCartList(it)
 
             if(it.isEmpty() == true){
-                recyclerViewCart.visibility = View.GONE
                 txtErrorCart.visibility = View.VISIBLE
                 progressLoadCart.visibility = View.GONE
                 //buttonCheckout.visibility = View.GONE
             }else{
-                recyclerViewCart.visibility = View.VISIBLE
                 txtErrorCart.visibility = View.GONE
                 progressLoadCart.visibility = View.GONE
                 //buttonCheckout.visibility = View.VISIBLE

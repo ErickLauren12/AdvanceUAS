@@ -18,8 +18,8 @@
         android:title="ItemCart"
         app:showAsAction="always" />
     <item
-        android:id="@+id/itemProfile"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:id="@+id/itemHistory"
+        android:icon="@drawable/ic_baseline_history_24"
         android:title="Profile"
         app:showAsAction="always" />
     <item

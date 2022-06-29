@@ -19,8 +19,9 @@ import kotlinx.android.synthetic.main.fragment_history.textError
 
 
 class HistoryFragment : Fragment() {
-    private  lateinit var  viewModel: TransactionViewModel
     private var historyAdapter = HistoryAdapter(arrayListOf())
+    private  lateinit var  viewModel: TransactionViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +39,7 @@ class HistoryFragment : Fragment() {
 
         refreshLayoutHistory.setOnRefreshListener {
             textError.visibility = View.GONE
-            progressLoad.visibility
+            progressLoad.visibility = View.VISIBLE
             refreshLayoutHistory.isRefreshing = false
             observeViewModel()
         }
@@ -51,11 +52,11 @@ class HistoryFragment : Fragment() {
             historyAdapter.updateHistoryList(it)
 
             if(it.isEmpty() == true){
-                textEmpty.visibility = View.VISIBLE
+                historyTxtEmpty.visibility = View.VISIBLE
                 textError.visibility = View.GONE
                 progressLoad.visibility = View.GONE
             }else{
-                textEmpty.visibility = View.GONE
+                historyTxtEmpty.visibility = View.GONE
                 textError.visibility = View.GONE
                 progressLoad.visibility = View.GONE
             }

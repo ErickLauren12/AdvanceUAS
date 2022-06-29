@@ -17,8 +17,6 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
     val loadingLiveData = MutableLiveData<Boolean>()
     val transaksiLoadErrorLiveData = MutableLiveData<Boolean>()
 
-    val TAG = "transaksiTag"
-
     private var job = Job()
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main

@@ -8,8 +8,7 @@ import com.example.a160419095_advancenativeuts.databinding.CartListItemBinding
 import com.example.a160419095_advancenativeuts.databinding.HistoryListItemBinding
 import com.example.a160419095_advancenativeuts.model.Transaksi
 
-class HistoryAdapter(val listTransaksi: ArrayList<Transaksi>) : RecyclerView.Adapter<
-        HistoryAdapter.HistoryViewHolder>(){
+class HistoryAdapter(val listTransaksi: ArrayList<Transaksi>) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>(){
     class HistoryViewHolder(var view: HistoryListItemBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {

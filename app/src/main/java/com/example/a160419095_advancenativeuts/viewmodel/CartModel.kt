@@ -81,6 +81,13 @@ class CartModel(application: Application) : AndroidViewModel(application), Corou
         }
     }
 
+    fun deleteAllCart(){
+        launch {
+            val db = buildDb(getApplication())
+            db.bookDatabase().deleteAllCart()
+        }
+    }
+
     fun checkOut(listTransaksi: List<Transaksi>) {
         launch {
             val db = buildDb(getApplication())

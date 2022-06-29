@@ -34,7 +34,7 @@
                 android:id="@+id/txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{book.title}"
+                android:text="@={book.title}"
                 android:hint="hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +62,7 @@
                 android:id="@+id/txtDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{book.description}"
+                android:text="@={book.description}"
                 android:hint="hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,7 +80,7 @@
                 android:id="@+id/txtWriter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{book.writer}"
+                android:text="@={book.writer}"
                 android:hint="hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,7 +98,7 @@
                 android:id="@+id/txtRelease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{book.releaseDate}"
+                android:text="@={book.releaseDate}"
                 android:hint="hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,7 +116,7 @@
                 android:id="@+id/txtStockBook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{book.stock}"
+                android:text="@={book.stock}"
                 android:hint="hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,7 +134,7 @@
                 android:id="@+id/txtPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{book.photoUrl}"
+                android:text="@={book.photoUrl}"
                 android:hint="hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
