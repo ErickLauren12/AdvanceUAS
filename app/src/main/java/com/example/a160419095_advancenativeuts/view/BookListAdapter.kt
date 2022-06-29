@@ -11,7 +11,7 @@ import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.util.loadImage
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
-class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>(), BookListDetailClickListener {
+class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>(), BookListDetailClickListener, ButtonEditBookClickListener {
     class BookViewHolder(var view:BookListItemBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -24,6 +24,7 @@ class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookL
         with(holder.view){
             book = bookList[position]
             detailListener = this@BookListAdapter
+            editListener = this@BookListAdapter
         }
         /*
         val book = bookList[position]
@@ -51,6 +52,12 @@ class BookListAdapter(val bookList:ArrayList<Book>) : RecyclerView.Adapter<BookL
     override fun onBookDetailClick(view: View) {
         val bookId = view.tag.toString()
         val action = BookListFragmentDirections.actionBookDetail(bookId)
+        Navigation.findNavController(view).navigate(action)
+    }
+
+    override fun onBookEditClick(view: View) {
+        val bookId = view.tag.toString()
+        val action = BookListFragmentDirections.actionEditBook(bookId)
         Navigation.findNavController(view).navigate(action)
     }
 }

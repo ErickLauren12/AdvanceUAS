@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_addBook"
             app:destination="@id/addBookFragment" />
+        <action
+            android:id="@+id/action_editBook"
+            app:destination="@id/editBook" />
     </fragment>
     <fragment
         android:id="@+id/bookDetailFragment"
@@ -88,5 +91,14 @@
         <argument
             android:name="idBook"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editBook"
+        android:name="com.example.a160419095_advancenativeuts.view.EditBook"
+        android:label="fragment_edit_book"
+        tools:layout="@layout/fragment_edit_book" >
+        <argument
+            android:name="bookId"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -3,7 +3,6 @@ package com.example.a160419095_advancenativeuts.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.example.a160419095_advancenativeuts.model.Account
 import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.model.Cart
 import com.example.a160419095_advancenativeuts.util.buildDb
@@ -16,22 +15,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
 //    val loadingLiveData = MutableLiveData<Boolean>()
 //    val cartLoadErrorLiveData = MutableLiveData<Boolean>()
     private var job = Job()
-
-    fun register(list: List<Account>) {
-        launch {
-            val db = buildDb(getApplication())
-            db.bookDatabase().insertAllAccount(*list.toTypedArray())
-
-        }
-    }
-
     override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main
+        get() = TODO("Not yet implemented")
 
-    fun login(username:String, pass:String) {
-        launch {
-            val db = buildDb(getApplication())
-            db.bookDatabase().loginAccount(username,pass)
-        }
-    }
 }

@@ -48,6 +48,13 @@ class BookDetailModel(application: Application) : AndroidViewModel(application),
         }
     }
 
+    fun update(book: Book){
+        launch {
+            val db = buildDb(getApplication())
+            db.bookDatabase().update(book.bookId, book.title, book.description, book.writer, book.releaseDate, book.stock, book.photoUrl)
+        }
+    }
+
     fun updateStock(id: Int, stock: String){
         launch {
             val db = buildDb(getApplication())

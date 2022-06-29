@@ -10,6 +10,9 @@
         <variable
             name="detailListener"
             type="com.example.a160419095_advancenativeuts.view.BookListDetailClickListener" />
+        <variable
+            name="editListener"
+            type="com.example.a160419095_advancenativeuts.view.ButtonEditBookClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,6 +106,19 @@
                     android:layout_marginTop="40dp"
                     android:text="@{`Stock: `+book.stock}"
                     app:layout_constraintStart_toEndOf="@+id/imageBook"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+
+                <Button
+                    android:id="@+id/buttonEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Edit"
+                    android:tag = "@{book.bookId}"
+                    android:onClick="@{editListener::onBookEditClick}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonDetail"
                     app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

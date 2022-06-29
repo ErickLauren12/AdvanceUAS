@@ -21,6 +21,14 @@ interface ButtonAddBookClickListener {
     fun onButtonAddBook(v:View, obj: Book)
 }
 
+interface ButtonEditBookClickListener{
+    fun onBookEditClick(view: View)
+}
+
+interface ButtonUpdateBookClickListener{
+    fun onBookUpdateClick(view: View, obj:Book)
+}
+
 //interface ButtonLoginClickListener {
 //    fun onButtonLogin(v:View, obj: Account)
 //}

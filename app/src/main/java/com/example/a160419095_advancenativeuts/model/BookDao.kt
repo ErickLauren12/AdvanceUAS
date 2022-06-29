@@ -26,6 +26,9 @@ interface BookDao {
     @Query("UPDATE book SET stock =  :stock WHERE bookId = :id")
     suspend fun updateStock(id: Int, stock:String)
 
+    @Query("UPDATE book SET title = :title, description = :description, writer = :writer, releaseDate= :release, stock=:stock, photoUrl=:photoUrl WHERE bookId = :id")
+    suspend fun update(id: Int, title:String, description:String, writer: String, release:String, stock: String, photoUrl:String)
+
     @Query("SELECT * FROM transaksi")
     suspend fun historyTransaction():List<Transaksi>
 
