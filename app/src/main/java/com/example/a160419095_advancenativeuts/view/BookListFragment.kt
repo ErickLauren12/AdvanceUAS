@@ -28,8 +28,8 @@ class BookListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ListBookViewModel::class.java)
         viewModel.refresh()
 
-        recyclerViewHistory.layoutManager = LinearLayoutManager(context)
-        recyclerViewHistory.adapter = bookListAdapter
+        recyclerViewBook.layoutManager = LinearLayoutManager(context)
+        recyclerViewBook.adapter = bookListAdapter
 
         floatingAdd.setOnClickListener {
             val action = BookListFragmentDirections.actionAddBook()

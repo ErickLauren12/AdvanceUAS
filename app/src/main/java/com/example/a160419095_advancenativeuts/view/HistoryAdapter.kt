@@ -15,12 +15,20 @@ class HistoryAdapter(val listTransaksi: ArrayList<Transaksi>) : RecyclerView.Ada
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = HistoryListItemBinding.inflate(inflater, parent, false)
-        return HistoryAdapter.HistoryViewHolder(view)
+        return HistoryViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        with(holder.view) {
+            history = listTransaksi[position]
+        }
     }
 
     override fun getItemCount(): Int = listTransaksi.size
+
+    fun updateHistoryList(newHistoryList: List<Transaksi>) {
+        listTransaksi.clear()
+        listTransaksi.addAll(newHistoryList)
+        notifyDataSetChanged()
+    }
 }

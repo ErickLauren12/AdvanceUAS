@@ -5,13 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a160419095_advancenativeuts.R
 import com.example.a160419095_advancenativeuts.viewmodel.CartModel
 import com.example.a160419095_advancenativeuts.viewmodel.TransactionViewModel
+import kotlinx.android.synthetic.main.fragment_book_list.*
+import kotlinx.android.synthetic.main.fragment_history.*
+import kotlinx.android.synthetic.main.fragment_history.progressLoad
+import kotlinx.android.synthetic.main.fragment_history.recyclerViewHistory
+import kotlinx.android.synthetic.main.fragment_history.textError
 
 
 class HistoryFragment : Fragment() {
     private  lateinit var  viewModel: TransactionViewModel
+    private var historyAdapter = HistoryAdapter(arrayListOf())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,6 +30,39 @@ class HistoryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(TransactionViewModel::class.java)
+        viewModel.historyTransaksi()
+
+        recyclerViewHistory.layoutManager = LinearLayoutManager(context)
+        recyclerViewHistory.adapter = historyAdapter
+
+        refreshLayoutHistory.setOnRefreshListener {
+            textError.visibility = View.GONE
+            progressLoad.visibility
+            refreshLayoutHistory.isRefreshing = false
+            observeViewModel()
+        }
+
+        observeViewModel()
+    }
+
+    private fun observeViewModel(){
+        viewModel.transaksiLiveData.observe(viewLifecycleOwner) {
+            historyAdapter.updateHistoryList(it)
+
+            if(it.isEmpty() == true){
+                textEmpty.visibility = View.VISIBLE
+                textError.visibility = View.GONE
+                progressLoad.visibility = View.GONE
+            }else{
+                textEmpty.visibility = View.GONE
+                textError.visibility = View.GONE
+                progressLoad.visibility = View.GONE
+            }
+        }
+
+        viewModel.transaksiLoadErrorLiveData.observe(viewLifecycleOwner){
+            textError.visibility = if(it) View.VISIBLE else View.GONE
+        }
     }
 }
