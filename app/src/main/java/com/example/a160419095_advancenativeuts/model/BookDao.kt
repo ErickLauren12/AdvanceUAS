@@ -4,14 +4,15 @@ import androidx.room.*
 
 @Dao
 interface BookDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllAccount(vararg account: Account)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllBook(vararg book: Book)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCart(vararg cart: Cart)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun checkOut(vararg transaction: Transaksi)
 
     @Query("SELECT * FROM book")
     suspend fun selectAllBook(): List<Book>
@@ -25,8 +26,8 @@ interface BookDao {
     @Query("UPDATE book SET stock =  :stock WHERE bookId = :id")
     suspend fun updateStock(id: Int, stock:String)
 
-    @Query("SELECT * FROM account WHERE username = :username AND password = :password")
-    suspend fun loginAccount(username: String, password: String): Account
+    @Query("SELECT * FROM transaksi")
+    suspend fun historyTransaction():List<Transaksi>
 
     @Query("SELECT * FROM cart")
     suspend fun selectAllCart(): List<Cart>

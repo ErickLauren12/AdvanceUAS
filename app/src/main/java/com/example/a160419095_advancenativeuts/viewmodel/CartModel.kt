@@ -12,6 +12,7 @@ import com.android.volley.toolbox.Volley
 import com.example.a160419095_advancenativeuts.model.Book
 import com.example.a160419095_advancenativeuts.model.BookDatabase
 import com.example.a160419095_advancenativeuts.model.Cart
+import com.example.a160419095_advancenativeuts.model.Transaksi
 import com.example.a160419095_advancenativeuts.util.buildDb
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -77,6 +78,13 @@ class CartModel(application: Application) : AndroidViewModel(application), Corou
             val db = Room.databaseBuilder(getApplication(), BookDatabase::class.java, "newbookdb").build()
             db.bookDatabase().deleteCart(cart)
             cartLiveData.value = db.bookDatabase().selectAllCart()
+        }
+    }
+
+    fun checkOut(listTransaksi: List<Transaksi>) {
+        launch {
+            val db = buildDb(getApplication())
+            db.bookDatabase().checkOut(*listTransaksi.toTypedArray())
         }
     }
 

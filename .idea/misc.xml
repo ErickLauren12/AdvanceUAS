@@ -3,10 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/book_list_item.xml" value="0.4" />
-        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/cart_list_item.xml" value="0.4" />
+        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/cart_list_item.xml" value="0.2" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/fragment_add_book.xml" value="0.23867753623188406" />
-        <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/fragment_book_detail.xml" value="0.4742468415937804" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/fragment_book_list.xml" value="0.264" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUAS/app/src/main/res/layout/fragment_cart.xml" value="0.11302083333333333" />
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUTS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.229" />
@@ -32,15 +30,20 @@
         <entry key="..\:/AdvanceNativeProject/160419095_AdvanceNativeUTS/app/src/main/res/menu/bottom_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/drawable-v24/shape_toolbar01.xml" value="0.197" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/drawable/shape_toolbar01.xml" value="0.197" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/activity_main.xml" value="0.2033514492753623" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/book_list_item.xml" value="0.18478260869565216" />
-        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/cart_list_item.xml" value="0.18478260869565216" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/cart_list_item.xml" value="0.4" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_about.xml" value="0.18478260869565216" />
-        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_add_book.xml" value="0.264" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_add_book.xml" value="0.2" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_book_detail.xml" value="0.18478260869565216" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_book_list.xml" value="0.2033514492753623" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_cart.xml" value="0.18478260869565216" />
-        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_register.xml" value="0.15104166666666666" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_checkout.xml" value="0.264" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_history.xml" value="0.264" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_profile.xml" value="0.2033514492753623" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_register.xml" value="0.264" />
         <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/fragment_update.xml" value="0.18478260869565216" />
+        <entry key="..\:/Semester Genap 2021-2022/Adv Native/UASAdv/app/src/main/res/layout/history_list_item.xml" value="0.4" />
       </map>
     </option>
   </component>

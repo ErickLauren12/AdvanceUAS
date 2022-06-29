@@ -71,9 +71,22 @@
         android:id="@+id/itemCart"
         android:name="com.example.a160419095_advancenativeuts.view.CartFragment"
         android:label="Cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/actionHistoryFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addBookFragment"
         android:name="com.example.a160419095_advancenativeuts.view.AddBookFragment"
         android:label="AddBookFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.a160419095_advancenativeuts.view.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <argument
+            android:name="idBook"
+            app:argType="integer" />
+    </fragment>
 </navigation>

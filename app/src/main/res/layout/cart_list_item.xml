@@ -10,6 +10,12 @@
         <variable
             name="removeListener"
             type="com.example.a160419095_advancenativeuts.view.CartRemoveClickListener" />
+        <variable
+            name="transaksi"
+            type="com.example.a160419095_advancenativeuts.model.Transaksi" />
+        <variable
+            name="listenercheckout"
+            type="com.example.a160419095_advancenativeuts.view.CheckoutClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +42,7 @@
                     android:id="@+id/imageCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:imageUrl="@{bookCart.image}"
@@ -50,13 +56,12 @@
                     android:id="@+id/txtCartTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="22dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="20dp"
                     android:text="@{bookCart.title}"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/imageCart"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,10 +70,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:backgroundTint="@android:color/holo_red_light"
-                    android:text="Remove"
                     android:onClick="@{(view) -> removeListener.onCartRemoveClick(view,bookCart)}"
+                    android:text="Remove"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtCartTitle"
@@ -83,6 +88,19 @@
                     app:layout_constraintEnd_toEndOf="@+id/imageCart"
                     app:layout_constraintStart_toStartOf="@+id/imageCart"
                     app:layout_constraintTop_toTopOf="@+id/imageCart" />
+
+                <Button
+                    android:id="@+id/btnCheckout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Checkout"
+                    android:tag="@{bookCart.bookId}"
+                    android:onClick="@{(view)->listenercheckout.onCheckoutClick(view,transaksi)"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonDelete"
+                    app:layout_constraintStart_toEndOf="@+id/imageCart"
+                    app:layout_constraintTop_toTopOf="@+id/buttonDelete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
