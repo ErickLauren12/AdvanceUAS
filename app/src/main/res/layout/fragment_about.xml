@@ -12,7 +12,7 @@
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="About"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,11 +26,22 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:text="Aplikasi library ini berfungsi untuk meminjam buku di perpustakaan Ubaya. Aplikasi ini dikembangkan dan dibuat oleh Erick dengan NRP 160419095"
+        android:text="Aplikasi library dibuta untuk meminjam buku di Perpustakan Universitas Surabaya"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Email : pustaka@unit.ubaya.ac.id"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
