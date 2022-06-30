@@ -11,7 +11,7 @@
             name="listener"
             type="com.example.a160419095_advancenativeuts.view.ButtonAddBookClickListener" />
         <variable
-            name="listenerDate"
+            name="listener_date"
             type="com.example.a160419095_advancenativeuts.view.DateClickListener" />
     </data>
 
@@ -56,7 +56,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:focusable="false"
-                        android:onClick="@{listenerDate::onDateClick}"
+                        android:enabled="true"
+                        android:onClick="@{listener_date::onDateClick}"
                         android:text="@={book.releaseDate}" />
                 </com.google.android.material.textfield.TextInputLayout>
 

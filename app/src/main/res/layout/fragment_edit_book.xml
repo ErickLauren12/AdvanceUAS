@@ -11,6 +11,10 @@
         <variable
             name="updateListener"
             type="com.example.a160419095_advancenativeuts.view.ButtonUpdateBookClickListener" />
+
+        <variable
+            name="listener_date"
+            type="com.example.a160419095_advancenativeuts.view.DateClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,6 +114,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    app:endIconDrawable="@drawable/ic_baseline_calendar_month_24"
+                    app:endIconMode="custom"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
                     app:layout_constraintEnd_toEndOf="@+id/textWriter"
                     app:layout_constraintStart_toStartOf="@+id/textWriter"
                     app:layout_constraintTop_toBottomOf="@+id/textWriter">
@@ -118,8 +126,12 @@
                         android:id="@+id/txtRelease"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:enabled="true"
+                        android:focusable="false"
                         android:hint="Release Date"
-                        android:text="@={book.releaseDate}" />
+                        android:onClick="@{listener_date::onDateClick}"
+                        android:text="@={book.releaseDate}"
+                        tools:ignore="SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout

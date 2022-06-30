@@ -51,11 +51,11 @@ class AddBookFragment : Fragment(),
     }
 
     override fun onButtonAddBook(v: View, obj: Book) {
-        val c = Calendar.getInstance()
-        c.set(year,month,day)
-        val today = Calendar.getInstance()
-        val diff = (c.timeInMillis/1000L)-(today.timeInMillis/1000L)
-        //dataBinding.book!!.releaseDate =
+//        val c = Calendar.getInstance()
+//        c.set(year,month,day)
+//        val today = Calendar.getInstance()
+//        val diff = (c.timeInMillis/1000L)-(today.timeInMillis/1000L)
+//        //dataBinding.book!!.releaseDate =
         var list = listOf(obj)
         viewModel.addBook(list)
         val builder = AlertDialog.Builder(context)
@@ -74,20 +74,20 @@ class AddBookFragment : Fragment(),
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         activity?.let {
-            it1 -> DatePickerDialog(it1,this, year,month,day).show()
+            it -> DatePickerDialog(it,this, year,month,day).show()
         }
     }
 
-    override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         Calendar.getInstance().let {
-            it.set(year,month,day)
-            val date = day.toString().padStart(2,'0') + '-' +
-                    month.toString().padStart(2,'0') + '-' +
-                    year.toString()
+            it.set(year,month,dayOfMonth)
+            val date =  dayOfMonth.toString().padStart(2,'0') + '-' +
+                        month.toString().padStart(2,'0') + '-' +
+                        year.toString()
             dataBinding.root.txtDate.setText(date)
             this.year = year
             this.month = month
-            this.day = day
+            this.day = dayOfMonth
         }
     }
 
