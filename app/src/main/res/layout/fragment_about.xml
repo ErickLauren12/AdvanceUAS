@@ -28,7 +28,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:text="Aplikasi library dibuta untuk meminjam buku di Perpustakan Universitas Surabaya"
+        android:text="Aplikasi library dibuat untuk meminjam buku di Perpustakan Universitas Surabaya"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
